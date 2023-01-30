@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { IsInt, IsPositive } from "class-validator";
-import { BaseProductDto } from "./base-product.dto";
+import { BaseVideogamesDto } from "./base-videogames.dto";
 import {
     isBooleanValidationOptions,
     isNotEmptyValidationOptions,
@@ -13,7 +13,7 @@ import {
   } from '@shared/validation';
 
 //extends accede a los atributos de la clase padre
-export class CreateProductDto extends BaseProductDto{
+export class CreateVideogamesDto extends BaseVideogamesDto{
 
     
 

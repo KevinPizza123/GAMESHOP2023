@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CreateProductDto, FilterProductDto, ReadProductDto } from 'src/modules-sv/dto';
-import { ProductEntity } from 'src/modules-sv/entities/product.model';
+import { CreateVideogamesDto, FilterVideogamesDto, ReadVideogamesDto } from 'src/modules-sv/dto';
+import { VideogamesEntity } from 'src/modules-sv/entities/Videogames.model';
 import { RepositoryEnum } from 'src/shared/enums/repository.enum';
 import { Repository } from 'typeorm';
 import { ServiceResponseHttpModel} from '@shared/models';
@@ -8,14 +8,14 @@ import { plainToInstance } from 'class-transformer';
 import { response } from 'express';
 
 @Injectable()
-export class ProductsService {
-    constructor(@Inject(RepositoryEnum.PRODUCT_REPOSITORY)
-        private repository:Repository<ProductEntity>,
+export class VideogamessService {
+    constructor(@Inject(RepositoryEnum.Videogames_REPOSITORY)
+        private repository:Repository<VideogamesEntity>,
         ){}
-   async create(payload:CreateProductDto):Promise<ServiceResponseHttpModel>{
-        const newProduct = this.repository.create(payload); //se crea el producto
-        const productCreated = this.repository.save(newProduct);//guardar el producto nuevo creado
-        return {data:plainToInstance(ReadProductDto,productCreated)}//visualizamos
+   async create(payload:CreateVideogamesDto):Promise<ServiceResponseHttpModel>{
+        const newVideogames = this.repository.create(payload); //se crea el Videogameso
+        const VideogamesCreated = this.repository.save(newVideogames);//guardar el Videogameso nuevo creado
+        return {data:plainToInstance(ReadVideogamesDto,VideogamesCreated)}//visualizamos
     }
 
    async catalogue():Promise<ServiceResponseHttpModel> {
@@ -26,7 +26,7 @@ export class ProductsService {
     };
    }
 
-   async findAll(params?:FilterProductDto):Promise<ServiceResponseHttpModel>{
+   async findAll(params?:FilterVideogamesDto):Promise<ServiceResponseHttpModel>{
         if(params?.limit>0 && params?.page >=0)
         return await this.paginateAndFilter(params);
     }
@@ -36,7 +36,7 @@ export class ProductsService {
         },
     });
     return{
-        data:plainToInstance(ReadProductDto,response[0]),
+        data:plainToInstance(ReadVideogamesDto,response[0]),
             pagination:{totalItems:response[1],limit:10}
     }
 

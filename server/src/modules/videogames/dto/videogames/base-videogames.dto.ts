@@ -22,7 +22,7 @@ import {
 
   //validar los campos de la clase
 
-  export class BaseProductDto {
+  export class BaseVideogamesDto {
 
     //@Allow()
     //readonly enrollment: EnrollmentEntity;

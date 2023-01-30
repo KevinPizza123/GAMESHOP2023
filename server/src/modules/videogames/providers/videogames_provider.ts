@@ -1,12 +1,12 @@
 import { CategoryEntity } from 'src/modules-sv/entities/category.model';
-import { ProductEntity } from 'src/modules-sv/entities/product.model';
+import { VideogamesEntity } from 'src/modules-sv/entities/Videogames.model';
 import { DataSource } from 'typeorm';
 
-export ventaProviders = [
+export videogamesProviders = [
     {
-        provide: RepositoryEnum.PRODUCT_REPOSITORY,
+        provide: RepositoryEnum.Videogames_REPOSITORY,
         userFactory: (dataSource: DataSource) =>
-            dataSource.getRepository(ProductEntity),
+            dataSource.getRepository(VideogamesEntity),
         inject: [DataSourceEnum.PG_DATA_SOURCE]
     },
     {

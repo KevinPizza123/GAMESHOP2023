@@ -1,17 +1,12 @@
 import { CategoryModel} from "./category.modul";
 
 export interface VideogamesModel {
-  id: number;
+id: number;
 title: string ;
-thumbnail: string ;
-short_description: string ;
-game_url: string ;
-genre: string ;
-platform: string ;
-publisher: string ;
-developer: string ;
-release_date: string ;
-freetogame_profile_url: string ;
+price: string ;
+description: string ;
+images:string[]
+categoryId: number;
 }
 
 export interface CreateVideogamesDto extends Omit<VideogamesModel, "id" | "Videogames" > {

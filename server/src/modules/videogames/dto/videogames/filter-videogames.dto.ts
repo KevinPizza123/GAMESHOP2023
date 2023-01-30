@@ -13,7 +13,7 @@ import {
 import { title } from 'process';
 
 //visualizar mediante paginas el nombre,cedula
-export class FilterProductDto extends PaginationDto{
+export class FilterVideogamesDto extends PaginationDto{
 @IsOptional()
 @IsString(isStringValidationOptions())
 readonly title:string;

@@ -1,9 +1,9 @@
 
 import { Exclude, Expose } from 'class-transformer';
-import { BaseProductDto } from './base-product.dto';
+import { BaseVideogamesDto } from './base-videogames.dto';
 
 @Exclude()
-export class ReadProductDto extends BaseProductDto {
+export class ReadVideogamesDto extends BaseVideogamesDto {
   //exponer el valor del atributo
   @Expose()
   readonly title;

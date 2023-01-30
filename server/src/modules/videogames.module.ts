@@ -5,12 +5,12 @@ import { Global, Module } from '@nestjs/common';
 @Module({
     imports: [DatabaseModule],
     controllers: [
-        ProductController,
+        VideogamesController,
         CategoryController
     ],
     providers: [
-        ...ventaProviders,
-        ProductService,
+        ...videogamesProviders,
+        VideogamesService,
         CategoryService,
         
     ],

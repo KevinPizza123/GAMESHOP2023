@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { ProductEntity } from "./Videogames.model";
+import { VideogamesEntity } from "./Videogames.model";
 
 @Entity('category',{schema:'ventasbdd'})
 export class CategoryEntity{
@@ -32,9 +32,9 @@ export class CategoryEntity{
 
     //Relationships
     
-    @OneToMany(() => ProductEntity, (product) => product.category)
-    @JoinColumn({name:'product_id'})
-    product: ProductEntity;
+    @OneToMany(() => VideogamesEntity, (Videogames) => Videogames.category)
+    @JoinColumn({name:'Videogames_id'})
+    Videogames: VideogamesEntity;
     
     @Column('varchar',{
         name:'name',
@@ -50,5 +50,5 @@ export class CategoryEntity{
     })
     
     description:string;
-    //user es categoria y photo es producto
+    //user es categoria y photo es Videogameso
 }
